@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    ports:
+     - "80:80"
+    volumes:
+      - .:/var/www
+      - ./docker_config/php.ini:/etc/php5/apache2/php.ini
+    working_dir: "/var/www"
+    links:
+     - db
+  db:
+    image: "mysql:5.5"
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ~/box/modx/config/mysql:/etc/mysql/conf.d
+    environment:
+      - "MYSQL_ROOT_PASSWORD=sntm3d1@"
+      - "MYSQL_DATABASE=snt_media_challenge"
+
+volumes:
+  dbdata:
