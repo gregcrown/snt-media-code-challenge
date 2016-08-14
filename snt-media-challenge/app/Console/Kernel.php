@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        Commands\updateListingsFromXml::class,
     ];
 
     /**
@@ -26,5 +27,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        $schedule->command('updateListingsFromXml')
+            ->dailyAt('02:00');
+            // ->everyMinute();
     }
 }
