@@ -28,8 +28,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 
-        $schedule->command('updateListingsFromXml')
-            ->dailyAt('02:00');
-            // ->everyMinute();
+        $schedule->command('listings:update')
+            ->dailyAt('02:00')
+            ->timezone('America/New_York');
     }
 }

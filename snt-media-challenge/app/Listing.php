@@ -23,4 +23,13 @@ class Listing extends Model
     protected $hidden = [];
 
     protected $table = 'listings';
+
+    public $timestamps = false;
+
+    /**
+     * Relationships
+     */
+    public function listingPhotos() {
+        return $this->hasMany('App\ListingPhoto', 'mls_number', 'mls_number');
+    }
 }

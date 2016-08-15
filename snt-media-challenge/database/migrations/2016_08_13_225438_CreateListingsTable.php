@@ -19,7 +19,7 @@ class CreateListingsTable extends Migration
             $table->string('state_or_province');
             $table->string('postal_code');
             $table->string('country');
-            $table->string('list_price')->index();
+            $table->integer('list_price')->index();
             $table->string('listing_url');
             $table->integer('bedrooms');
             $table->float('bathrooms');
